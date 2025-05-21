@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEM YEBOUA - À propos | Community Manager Professionnel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        :root {
+            --primary: #2c3e50;    /* Couleur sombre professionnelle */
+            --secondary: #3498db;   /* Bleu vif */
+            --accent: #e74c3c;      /* Rouge orangé */
+            --light: #ecf0f1;       /* Gris clair */
+            --dark: #1a252f;        /* Noir bleuté */
+            --code-bg: #282c34;     /* Fond sombre pour éléments "code" */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light);
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .logo img {
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Main Content */
+        main {
+            margin-top: 80px;
+        }
+        
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1, h2, h3 {
+            color: var(--primary);
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            bottom: -10px;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        /* Expert Section */
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            background-color: white;
+            padding: 4rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 3rem;
+        }
+        
+        .content h2 {
+            color: var(--secondary);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .content p {
+            margin-bottom: 1.5rem;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.5s ease;
+        }
+        
+        .image img:hover {
+            transform: scale(1.02);
+        }
+        
+        /* About Section */
+        .about {
+            background-color: white;
+            padding: 4rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .about p {
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .about img {
+            border-radius: 10px;
+            margin-top: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 100%;
+            height: auto;
+            border: 5px solid white;
+            transition: transform 0.5s ease;
+        }
+        
+        .about img:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .stat-item {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+        }
+        
+        /* Partners Section */
+        .partners-section {
+            background-color: var(--light);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .partners-section h1 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+        
+        .partners-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .partner {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .partner:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .partner img {
+            max-width: 100%;
+            height: auto;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+        
+        .partner:hover img {
+            filter: grayscale(0%);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            background-color: var(--secondary);
+            bottom: -5px;
+            left: 0;
+        }
+        
+        .footer-section p, .footer-section li {
+            color: #bbb;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: #bbb;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .social-media {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-media a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-media a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .social-media img {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .image {
+                order: -1;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .partners-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <div class="logo" data-aos="fade-down"> 
+                <a href="#"><img src="image/part.jpg" alt="SEM YEBOUA - Community Manager"></a>
+            </div>
+            <ul class="nav-links" data-aos="fade-down">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="propos.html">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content" data-aos="fade-up">
+            <div>
+                <h2>LE MOT DE L'EXPERT</h2>
+                <p>En tant que Community Manager professionnel avec une expertise en stratégie digitale, je considère chaque marque comme une histoire unique à raconter. Mon approche combine analyse data-driven et créativité pour construire des communautés engagées.</p>
+                <p>Dans un paysage digital en constante évolution, je m'adapte aux nouvelles tendances algorithmiques tout en maintenant une cohérence de marque. Mon expérience transversale (réseaux sociaux, publicité digitale, analyse de données) me permet d'offrir des solutions intégrées.</p>
+                <p>Je crois fermement que le succès sur les réseaux sociaux ne se mesure pas seulement en nombres (likes, followers), mais surtout en qualité d'engagement et en conversion réelle. C'est cette philosophie qui guide chacune de mes stratégies.</p>
+            </div>
+            <div class="image" data-aos="fade-left">
+                <img src="image/se.jpg" alt="SEM YEBOUA - Expert en Community Management">
+            </div>
+        </section>
+
+        <section id="about" class="about" data-aos="fade-up">
+            <h2>À propos de moi</h2>
+            <p>Je m'appelle YEBOUA SEM, Community Manager et Stratège Digital avec plus de 3 ans d'expérience dans la gestion de communautés en ligne et le développement de marques sur les réseaux sociaux.</p>
+            <p>Diplômé en Marketing Digital et Communication, j'ai eu l'opportunité de travailler avec des entreprises variées (startups, PME, grandes marques) dans des secteurs divers comme la mode, la tech, la restauration et les services.</p>
+            <p>Ma méthodologie repose sur 3 piliers : <strong>Analyse</strong> (compréhension de l'audience et du marché), <strong>Création</strong> (contenu engageant et adapté) et <strong>Optimisation</strong> (tests constants et amélioration continue).</p>
+            <p>Passionné par l'évolution du digital, je me forme continuellement aux nouvelles plateformes et tendances pour offrir à mes clients des stratégies toujours innovantes.</p>
+            <img src="image/ye.jpg" alt="SEM YEBOUA - Portrait" data-aos="zoom-in">
+        </section>
+
+        <section class="stats" data-aos="fade-up">
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Clients Satisfaits</div>
+            </div>
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-number">1+</div>
+                <div class="stat-label">Ans d'Expérience</div>
+            </div>
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="stat-number">120%</div>
+                <div class="stat-label">Croissance Moyenne</div>
+            </div>
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                <div class="stat-number">10K+</div>
+                <div class="stat-label">Followers Gérés</div>
+            </div>
+        </section>
+
+        <section class="partners-section" data-aos="fade-up">
+            <h1>ILS NOUS ONT FAIT CONFIANCE</h1>
+            <div class="partners-container">
+                <div class="partner" data-aos="flip-left">
+                    <img src="image/cav.png" alt="Client CAV">
+                </div>
+                <div class="partner" data-aos="flip-left" data-aos-delay="100">
+                    <img src="image/bles.jpg" alt="Client Bless">
+                </div>
+                <div class="partner" data-aos="flip-left" data-aos-delay="200">
+                    <img src="image/cav.png" alt="Client CAV">
+                </div>
+                <div class="partner" data-aos="flip-left" data-aos-delay="300">
+                    <img src="image/bles.jpg" alt="Client Bless">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <img src="image/part.jpg" alt="SEM YEBOUA" class="logo" style="width: 100px; border-radius: 50%;">
+                <p>Community manager professionnel, je transforme votre présence digitale en une expérience engageante et rentable.</p>
+                <p><i class="fas fa-certificate"></i> Certifié Facebook Blueprint & Google Analytics</p>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">Gestion des réseaux sociaux</a></li>
+                    <li><a href="#">Stratégie de contenu</a></li>
+                    <li><a href="#">Publicité sociale</a></li>
+                    <li><a href="#">Formation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><i class="fas fa-phone"></i> +225 XX XX XX XX</li>
+                    <li><i class="fas fa-envelope"></i> semyeboua@example.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Abidjan, Côte d'Ivoire</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Réseaux Sociaux</h3>
+                <div class="social-media">
+                    <a href="https://fr-fr.facebook.com/"><img src="image/facebook.png" alt="Facebook"></a>
+                    <a href="https://x.com/"><img src="image/cross.png" alt="Twitter/X"></a>
+                    <a href="https://fr.linkedin.com/"><img src="image/linkedin.png" alt="LinkedIn"></a>
+                    <a href="https://www.instagram.com/"><img src="image/instagram.png" alt="Instagram"></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 SEM YEBOUA - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialisation des animations AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: false
+        });
+
+        // Animation pour le survol des éléments de partenaires
+        document.querySelectorAll('.partner').forEach(partner => {
+            partner.addEventListener('mouseenter', () => {
+                partner.style.transform = 'scale(1.1)';
+                partner.style.boxShadow = '0 10px 25px rgba(0,0,0,0.1)';
+            });
+            
+            partner.addEventListener('mouseleave', () => {
+                partner.style.transform = 'scale(1)';
+                partner.style.boxShadow = '0 5px 15px rgba(0,0,0,0.05)';
+            });
+        });
+
+        // Animation pour les statistiques
+        document.querySelectorAll('.stat-item').forEach(stat => {
+            stat.addEventListener('mouseenter', () => {
+                stat.style.transform = 'translateY(-10px)';
+            });
+            
+            stat.addEventListener('mouseleave', () => {
+                stat.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEM YEBOUA - Community Manager Professionnel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;    /* Couleur sombre professionnelle */
+            --secondary: #3498db;   /* Bleu vif */
+            --accent: #e74c3c;      /* Rouge orangé */
+            --light: #ecf0f1;       /* Gris clair */
+            --dark: #1a252f;        /* Noir bleuté */
+            --code-bg: #282c34;     /* Fond sombre pour éléments "code" */
+            --success: #2ecc71;     /* Vert */
+            --warning: #f39c12;     /* Orange */
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light);
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .logo img {
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 8rem 2rem;
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(26, 37, 47, 0.9)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            color: white;
+            margin-top: 70px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, var(--secondary), var(--accent), var(--secondary));
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: gradient 3s linear infinite;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 1rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent);
+        }
+        
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: white;
+            text-align: center;
+        }
+        
+        .services h2, .portfolio h2, .testimonials h2, .skills h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .services h2::after, .portfolio h2::after, .testimonials h2::after, .skills h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            bottom: -10px;
+            left: 25%;
+            border-radius: 2px;
+        }
+        
+        .service-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+        
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-color: var(--secondary);
+        }
+        
+        .service-item h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .service-item p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        /* Portfolio Section */
+        .portfolio {
+            background-color: var(--light);
+            text-align: center;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .portfolio-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .portfolio-item-content {
+            padding: 1.5rem;
+        }
+        
+        .portfolio-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background-color: white;
+            text-align: center;
+        }
+        
+        .testimonials-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonial-item {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .testimonial-item::before {
+            content: '"';
+            font-size: 5rem;
+            color: var(--secondary);
+            opacity: 0.2;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-item p:first-of-type {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-item p:last-of-type {
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        /* Skills Section */
+        .skills {
+            background-color: var(--light);
+            text-align: center;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .skill-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .skill-bar {
+            height: 5px;
+            background-color: #eee;
+            border-radius: 5px;
+            margin-top: 1rem;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            border-radius: 5px;
+        }
+        
+        /* Process Section */
+        .process {
+            background-color: white;
+            text-align: center;
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+        
+        .process-step {
+            flex: 1;
+            min-width: 200px;
+            max-width: 250px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 100%;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary);
+            z-index: -1;
+        }
+        
+        .process-step:last-child::after {
+            display: none;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+        
+        /* Blog Section */
+        .blog {
+            background-color: var(--light);
+            text-align: center;
+        }
+        
+        .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .blog-post {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+        
+        .blog-post:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .blog-post img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .blog-post-content {
+            padding: 1.5rem;
+        }
+        
+        .blog-post h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .blog-post-meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .read-more {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .read-more:hover {
+            color: var(--accent);
+            gap: 1rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: white;
+            text-align: center;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+            text-align: left;
+        }
+        
+        .contact-info h3, .contact-form h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-top: 0.2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: var(--secondary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+        
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            background-color: var(--secondary);
+            bottom: -5px;
+            left: 0;
+        }
+        
+        .footer-section p, .footer-section li {
+            color: #bbb;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: #bbb;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .process-step::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <div class="logo" data-aos="fade-down"> 
+                <a href="#"><img src="image/part.jpg" alt="SEM YEBOUA - Community Manager"></a>
+            </div>
+            <ul class="nav-links" data-aos="fade-down">
+                <li><a href="#accueil">Accueil</a></li>
+                
+                <li><a href="propos.html">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="accueil" class="hero" data-aos="fade-up" data-aos-duration="1000">
+        <h1 class="animate__animated animate__fadeInDown">SEM YEBOUA<br>Community Manager & Stratège Digital</h1>
+        <p class="animate__animated animate__fadeIn animate__delay-1s">Je transforme votre présence en ligne en une expérience engageante et rentable</p>
+        <p class="animate__animated animate__fadeIn animate__delay-2s">Avec 5 ans d'expérience en gestion de communauté et stratégie digitale, j'aide les entreprises à développer leur marque sur les réseaux sociaux.</p>
+        <a href="#contact" class="cta-button animate__animated animate__fadeIn animate__delay-3s">Discutons de votre projet</a>
+    </section>
+
+    <section id="services" class="services">
+        <h2 data-aos="fade-up">Mes Services</h2>
+        <p data-aos="fade-up" data-aos-delay="100">Des solutions sur mesure pour booster votre présence digitale</p>
+        <div class="service-list">
+            <div class="service-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Gestion des Réseaux Sociaux</h3>
+                <p>Gestion complète de vos plateformes sociales (Facebook, Instagram, LinkedIn, Twitter) avec une stratégie adaptée à votre audience cible.</p>
+                <ul>
+                    <li>Publication régulière de contenu</li>
+                    <li>Réponse aux commentaires et messages</li>
+                    <li>Analyse des performances</li>
+                </ul>
+            </div>
+            <div class="service-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-icon">
+                    <i class="fas fa-pencil-alt"></i>
+                </div>
+                <h3>Création de Contenu</h3>
+                <p>Contenu visuel et textuel engageant conçu pour maximiser l'interaction et la fidélisation de votre audience.</p>
+                <ul>
+                    <li>Design graphique</li>
+                    <li>Rédaction captivante</li>
+                    <li>Vidéos courtes et stories</li>
+                </ul>
+            </div>
+            <div class="service-item" data-aos="fade-up" data-aos-delay="400">
+                <div class="service-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Stratégie de Marque</h3>
+                <p>Développement d'une identité de marque cohérente et d'une stratégie de contenu à long terme.</p>
+                <ul>
+                    <li>Analyse de marché</li>
+                    <li>Positionnement de marque</li>
+                    <li>Calendrier éditorial</li>
+                </ul>
+            </div>
+            <div class="service-item" data-aos="fade-up" data-aos-delay="500">
+                <div class="service-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h3>Publicité Ciblée</h3>
+                <p>Campagnes publicitaires performantes sur les réseaux sociaux pour atteindre vos objectifs business.</p>
+                <ul>
+                    <li>Audience targeting</li>
+                    <li>A/B testing</li>
+                    <li>Optimisation du ROI</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <h2 data-aos="fade-up">Mes Réalisations</h2>
+        <p data-aos="fade-up" data-aos-delay="100">Quelques projets récents qui illustrent mon expertise</p>
+        <div class="portfolio-grid">
+            <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Projet Mode">
+                <div class="portfolio-item-content">
+                    <h3>Marque de Mode</h3>
+                    <p>Stratégie digitale complète pour une marque de prêt-à-porter avec augmentation de 150% du trafic vers le site e-commerce.</p>
+                    <div class="stats">
+                        <p><i class="fas fa-chart-bar"></i> +30% d'engagement</p>
+                        <p><i class="fas fa-users"></i> +5K nouveaux followers</p>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="300">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Projet Tech">
+                <div class="portfolio-item-content">
+                    <h3>Startup Tech</h3>
+                    <p>Lancement de produit et community building pour une startup SaaS avec génération de leads qualifiés.</p>
+                    <div class="stats">
+                        <p><i class="fas fa-chart-bar"></i> +50% d'interactions</p>
+                        <p><i class="fas fa-dollar-sign"></i> 25K€ de ventes générées</p>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="400">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Projet Restaurant">
+                <div class="portfolio-item-content">
+                    <h3>Restaurant Gastronomique</h3>
+                    <p>Gestion complète des réseaux sociaux avec augmentation des réservations en ligne de 40% en 3 mois.</p>
+                    <div class="stats">
+                        <p><i class="fas fa-utensils"></i> +20% de réservations</p>
+                        <p><i class="fas fa-star"></i> Note Google passée à 4.8/5</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="competences" class="skills">
+        <h2 data-aos="fade-up">Mes Compétences</h2>
+        <p data-aos="fade-up" data-aos-delay="100">Un mélange unique de créativité et d'analyse pour des résultats concrets</p>
+        <div class="skills-grid">
+            <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="skill-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </div>
+                <h3>Facebook Ads</h3>
+                <p>Création et optimisation de campagnes publicitaires</p>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 95%"></div>
+                </div>
+            </div>
+            <div class="skill-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="skill-icon">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <h3>Instagram Marketing</h3>
+                <p>Stratégie de contenu visuel et stories engageantes</p>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 90%"></div>
+                </div>
+            </div>
+            <div class="skill-item" data-aos="fade-up" data-aos-delay="400">
+                <div class="skill-icon">
+                    <i class="fas fa-chart-pie"></i>
+                </div>
+                <h3>Analyse de Données</h3>
+                <p>Interprétation des métriques pour optimiser les performances</p>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 85%"></div>
+                </div>
+            </div>
+            <div class="skill-item" data-aos="fade-up" data-aos-delay="500">
+                <div class="skill-icon">
+                    <i class="fas fa-pen-fancy"></i>
+                </div>
+                <h3>Rédaction</h3>
+                <p>Contenu engageant adapté à chaque plateforme</p>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 88%"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process">
+        <h2 data-aos="fade-up">Ma Méthodologie</h2>
+        <p data-aos="fade-up" data-aos-delay="100">Une approche structurée pour des résultats optimaux</p>
+        <div class="process-steps">
+            <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                <div class="step-number">1</div>
+                <h3>Audit</h3>
+                <p>Analyse complète de votre présence actuelle et identification des opportunités</p>
+            </div>
+            <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                <div class="step-number">2</div>
+                <h3>Stratégie</h3>
+                <p>Développement d'un plan d'action personnalisé avec objectifs clairs</p>
+            </div>
+            <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+                <div class="step-number">3</div>
+                <h3>Exécution</h3>
+                <p>Mise en œuvre avec création de contenu et gestion au quotidien</p>
+            </div>
+            <div class="process-step" data-aos="fade-up" data-aos-delay="500">
+                <div class="step-number">4</div>
+                <h3>Optimisation</h3>
+                <p>Analyse des résultats et ajustements pour amélioration continue</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <h2 data-aos="fade-up">Témoignages Clients</h2>
+        <p data-aos="fade-up" data-aos-delay="100">Ce que mes clients disent de mon travail</p>
+        <div class="testimonials-list">
+            <div class="testimonial-item" data-aos="fade-right" data-aos-delay="200">
+                <p>"SEM a complètement transformé notre présence sur les réseaux sociaux. En seulement 3 mois, nous avons doublé notre audience et augmenté nos ventes en ligne de 40%. Son approche stratégique et sa créativité font toute la différence."</p>
+                <p><strong>KOUASSI KOUASSI SERAPHIN</strong><br>Directeur, Economiste</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+            <div class="testimonial-item" data-aos="fade-right" data-aos-delay="300">
+                <p>"Travailler avec SEM a été une révélation. Il a su comprendre notre ADN et le traduire par une stratégie digitale cohérente. Les résultats ont dépassé nos attentes, avec une communauté engagée et fidèle."</p>
+                <p><strong>KOUMA CARELLE</strong><br>Fondatrice, </p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+            <div class="testimonial-item" data-aos="fade-right" data-aos-delay="400">
+                <p>"En tant que startup, nous avions besoin de visibilité rapidement. SEM a mis en place une stratégie efficace avec un budget limité. Nous avons acquis nos premiers 1000 clients grâce à son expertise."</p>
+                <p><strong>GUIGUI ESAIE</strong><br>FONDATEUR , DEV BLESSING</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="blog">
+        <h2 data-aos="fade-up">Conseils & Actualités</h2>
+        <p data-aos="fade-up" data-aos-delay="100">Derniers articles sur le community management et le marketing digital</p>
+        <div class="blog-posts">
+            <div class="blog-post" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Algorithmes sociaux">
+                <div class="blog-post-content">
+                    <div class="blog-post-meta">
+                        <i class="far fa-calendar-alt"></i> 15 Juin 
+                        <i class="far fa-clock"></i> 5 min read
+                    </div>
+                    <h3>Comprendre les algorithmes des réseaux sociaux en 2025</h3>
+                    <p>Comment optimiser votre contenu pour les dernières mises à jour des algorithmes des principales plateformes sociales.</p>
+                    <a href="#" class="read-more">Lire plus <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="blog-post" data-aos="fade-up" data-aos-delay="300">
+                <img src=>
+                <div class="blog-post-content">
+                    <div class="blog-post-meta">
+                        <i class="far fa-calendar-alt"></i> 21 Mai 2025
+                        <i class="far fa-clock"></i> 7 min read
+                    </div>
+                    <h3>Créer un calendrier éditorial efficace</h3>
+                    <p>Les étapes clés pour planifier votre contenu et maintenir une présence constante sur les réseaux.</p>
+                    <a href="#" class="read-more">Lire plus <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="blog-post" data-aos="fade-up" data-aos-delay="400">
+                <img src="">
+                <div class="blog-post-content">
+                    <div class="blog-post-meta">
+                        <i class="far fa-calendar-alt"></i> 20 Mai 2023
+                        <i class="far fa-clock"></i> 10 min read
+                    </div>
+                    <h3>Les tendances du community management en 2025</h3>
+                    <p>Découvrez les nouvelles pratiques qui marquent le marketing des réseaux sociaux cette année.</p>
+                    <a href="#" class="read-more">Lire plus <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 data-aos="fade-up">Travaillons Ensemble</h2>
+        <p data-aos="fade-up" data-aos-delay="100">Prêt à booster votre présence sur les réseaux sociaux? Contactez-moi dès aujourd'hui!</p>
+        <div class="contact-container">
+            <div class="contact-info" data-aos="fade-right" data-aos-delay="200">
+                <h3>Coordonnées</h3>
+                <div class="contact-details">
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Adresse</h4>
+                            <p>Abidjan, Côte d'Ivoire</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>semyeboua@example.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Téléphone</h4>
+                            <p>+225 XX XX XX XX</p>
+                        </div>
+                    </div>
+                </div>
+                <h3>Réseaux Sociaux</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="contact-form" data-aos="fade-left" data-aos-delay="300">
+                <h3>Envoyez un Message</h3>
+                <form>
+                    <input type="text" placeholder="Votre nom" required>
+                    <input type="email" placeholder="Votre email" required>
+                    <input type="text" placeholder="Sujet">
+                    <textarea placeholder="Votre message"></textarea>
+                    <button type="submit" class="submit-btn">Envoyer <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <img src="image/part.jpg" alt="SEM YEBOUA" class="logo" style="width: 100px; border-radius: 50%;">
+                <p>Community manager professionnel, je vous aide à développer votre présence sur les réseaux
+                     sociaux avec une stratégie sur mesure.</p>
+                <p><i class="fas fa-award"></i> Certifié Facebook Blueprint & Google Analytics</p>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">Gestion des réseaux sociaux</a></li>
+                    <li><a href="#">Stratégie de contenu</a></li>
+                    <li><a href="#">Publicité sociale</a></li>
+                    <li><a href="#">Formation</a></li>
+                    <li><a href="#">Audit gratuit</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Liens Utiles</h3>
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#competences">Compétences</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Abonnez-vous pour recevoir des conseils exclusifs sur le community management.</p>
+                <form>
+                    <input type="email" placeholder="Votre email" required>
+                    <button type="submit" class="submit-btn">S'abonner</button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+           
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialisation des animations AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: false
+        });
+
+        // Animation pour le survol des éléments de service
+        document.querySelectorAll('.service-item, .portfolio-item, .testimonial-item, .skill-item, .blog-post').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.transform = 'translateY(-10px)';
+                item.style.boxShadow = '0 15px 30px rgba(0,0,0,0.1)';
+            });
+            
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'translateY(0)';
+                item.style.boxShadow = '0 5px 15px rgba(0,0,0,0.05)';
+            });
+        });
+
+        // Animation pour la navigation
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                link.style.color = '#3498db';
+            });
+            
+            link.addEventListener('mouseleave', () => {
+                link.style.color = '#fff';
+            });
+        });
+
+        // Effet de parallaxe pour la section hero
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.pageYOffset;
+            const heroSection = document.querySelector('.hero');
+            
+            if (heroSection) {
+                heroSection.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+            }
+        });
+
+        // Animation pour les icônes de compétences
+        document.querySelectorAll('.skill-icon').forEach(icon => {
+            icon.addEventListener('mouseenter', () => {
+                icon.style.transform = 'rotate(15deg) scale(1.2)';
+                icon.style.color = '#e74c3c';
+            });
+            
+            icon.addEventListener('mouseleave', () => {
+                icon.style.transform = 'rotate(0) scale(1)';
+                icon.style.color = '#3498db';
+            });
+        });
+    </script>
+</body>
+</html>

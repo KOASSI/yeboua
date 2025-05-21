@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #121212;
+  color: #f1f1f1;
+  line-height: 1.6;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1e1e1e;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.nav a {
+  color: #00d1b2;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #00ffd5;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.intro {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(145deg, #1f1f1f, #2a2a2a);
+}
+
+.intro h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.intro p {
+  font-size: 1.2rem;
+  color: #bbb;
+}
+
+.form-section {
+  padding: 3rem 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-container {
+  background-color: #1e1e1e;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  background-color: #2a2a2a;
+  color: #fff;
+  border-radius: 6px;
+}
+
+.form-group label {
+  position: absolute;
+  top: -1.2rem;
+  left: 1rem;
+  background-color: #1e1e1e;
+  padding: 0 0.5rem;
+  color: #00d1b2;
+  font-size: 0.9rem;
+}
+
+button[type="submit"] {
+  background-color: #00d1b2;
+  color: #000;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #00ffd5;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: #1a1a1a;
+  color: #666;
+  font-size: 0.9rem;
+}
